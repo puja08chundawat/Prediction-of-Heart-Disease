@@ -1,0 +1,156 @@
+{% extends "layout.html" %} {% block body %}
+<br />
+<div class="container">
+  <h1 class="text-center"><u>Heart Disease test</u></h1>
+</div>
+<div class="container-castome mx-auto">
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  messages %}
+  <div class="flashes">
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+    {% endfor %}
+  </div>
+  {% endif %} {% endwith %}
+  <form action="{{ url_for('predict_heart') }}" method="POST">
+    <div class="form-group">
+     <label class="lb-lg">gender</label>
+      <select class="form-control" name="gender">
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+      </select> 
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">age</label>
+      <input
+        type="text"
+        class="form-control"
+        name="age"
+        placeholder="Age (years) eg. 34"
+      />
+      
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">cigPerDay</label>
+      
+       <input
+        type="text"
+        class="form-control"
+        name="cigPerDay"
+        placeholder="Number of cigarettes smoked each day"
+      /> 
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">BPMeds</label>
+      <input
+        type="text"
+        class="form-control"
+        name="BPMeds"
+        placeholder="Use of Anti-hypertensive medication"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">prevalentStroke</label>
+      <input
+        type="text"
+        class="form-control"
+        name="prevalentStroke"
+        placeholder="PrevalentStroke"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">prevalentHyp</label>
+      <input
+        type="text"
+        class="form-control"
+        name="prevalentHyp"
+        placeholder="prevalent Hypertension treated"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">diabetes</label>
+      <input
+        type="text"
+        class="form-control"
+        name="diabetes"
+        placeholder="diabetes"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">totchol</label>
+      <input
+        type="text"
+        class="form-control"
+        name="totchol"
+        placeholder="Total cholesterol (mg/dL)"
+      />
+    </div>
+
+    <div class="form-group">
+      <label class="lb-lg">sysBP</label>
+      <input
+        type="text"
+        class="form-control"
+        name="sysBP"
+        placeholder="Systolic Blood Pressure (mmHg)"
+      />
+    </div>
+     <div class="form-group">
+      <label class="lb-lg">BMI</label>
+      <input
+        type="text"
+        class="form-control"
+        name="BMI"
+        placeholder="Body Mass Index, weight (kg)/height (m)^2"
+      />
+    </div>
+    <div class="form-group">
+      <label class="lb-lg">heartRate</label>
+      <input
+        type="text"
+        class="form-control"
+        name="heartRate"
+        placeholder=" Heart rate (beats/minute)"
+      />
+    </div> 
+
+    <div class="form-group">
+      <label class="lb-lg">glucose</label>
+      <input type="text" class="form-control" name="glucose" placeholder="Blood glucose level (mg/dL)" />
+    </div>
+     <div class="form-group">
+      <label class="lb-lg">h1</label>
+      <input
+        type="text"
+        class="form-control"
+        name="h1"
+        placeholder=" Heart rate (beats/minute) in groups"
+      />
+    </div> 
+<div class="form-group">
+      <label class="lb-lg">e1_age</label>
+      <input
+        type="text"
+        class="form-control"
+        name="e1_age"
+        placeholder="age in groups"
+      />
+    </div> 
+
+     
+    <div class="text-center mb-5 pb-4">
+      <input type="submit" class="my-cta-button" value="Predict" />
+    </div>
+
+  </form>
+</div>
+
+{% endblock %}

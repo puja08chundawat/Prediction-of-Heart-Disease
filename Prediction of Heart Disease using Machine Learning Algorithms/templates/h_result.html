@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style>
+table {
+  border-collapse: collapse;
+  width: 40%;
+  border:1px solid black;
+  
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+<br><br>
+<div class="container mb-5 pb-5">
+    <h1 class="text-center">Prediction of Heart Disesase Result</h1>
+</div>
+<div class="text-center">
+  <table class="center" >
+    {% for key, value in result.items() %}
+
+    <tr>
+       <th style="text-align:center"> {{ key }} </th>
+       <td style="text-align:center"> {{ value }} </td>
+    </tr>
+
+    {% endfor %}
+ </table>
+</div>
+
+	<!-- Result -->
+	<div class="text-center">
+		{% if prediction == 1 %}
+			<h2>Prediction: <span class='danger'>The patient is  likely to have 10 years risk of heart disease!</span></h2>
+			<img class="gif" src="{{ url_for('static', filename='heart-break.gif') }}" alt="Image">
+		{% elif prediction==0 %}
+                        <h2>Prediction: <span class='safe'>Great!The patient is likely not to have 10 years risk of  heart disease!</span></h2>
+			<img class="gif1" src="{{ url_for('static', filename='no-heart-disease.gif') }}" alt="Image">
+		{% endif %}	
+		
+	</div>
+{% endblock body%}

@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block css %}
+.card
+{
+margin-bottom:20px;
+border-radius:10px;
+height:auto;
+max-height:56vh;
+overflow:hidden;
+}
+.card:hover {
+background-color:#87a4f6;
+}
+.card img {
+border-radius:10px;
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+.card
+{
+margin-bottom:20px;
+border-radius:10px;
+height:auto;
+max-height:55vh;
+overflow:hidden;
+}
+}
+/* START OF Reduce the height of the Slider */
+@media (max-width: 1200px){
+#customizr-slider.carousel .item {
+height: 308px;
+min-height: 308px;
+line-height: 308px;
+}
+}
+@media (max-width: 979px){
+#customizr-slider.carousel .item {
+height: 247px;
+min-height: 247px;
+line-height: 247px;
+}
+}
+@media (max-width: 767px){
+#customizr-slider.carousel .item {
+height: 246px;
+min-height: 246px;
+line-height: 246px;
+}
+}
+
+@media (max-width: 480px){
+#customizr-slider.carousel .item {
+height:         152px;
+min-height:     152px;
+line-height:    152px;
+}
+}
+
+@media (max-width: 320px){
+#customizr-slider.carousel .item {
+height:         112px;
+min-height:     112px;
+line-height:    112px;
+}
+}
+/* END OF Reduce the height of the Slider */
+{% endblock css %}
+{% block body %}
+
+<div class="container-fluid px-0 py-0">
+  
+<div class="container">
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="{{ url_for('static', filename='1.jpg') }}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='5.jpg') }}" alt="Second slide" width="960" height="420">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='4.jpg') }}" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="{{ url_for('static', filename='6.jpg') }}" alt="Third slide" width="960" height="420">
+    </div>
+    
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="container-fluid px-5 mb-3 pb-3">
+  <div class="row">
+
+   
+
+    
+
+    
+
+  </div>
+</div>
+
+<!-- /.row 
+
+    
+    
+  <!-- /.row
+
+    
+      
+    </div>-->
+
+
+{% endblock %}
